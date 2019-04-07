@@ -1,0 +1,22 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-success" (click)="onNewBrand()">New Brand</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="list-group">
+
+      </div>
+      <app-brand-item *ngFor="let brandItem of brands; let i=index"
+      [brand]="brandItem" [index]="i">
+      </app-brand-item>
+      <!--<app-model-list></app-model-list>-->
+    </div>
+  </div>
+</div>
+
+

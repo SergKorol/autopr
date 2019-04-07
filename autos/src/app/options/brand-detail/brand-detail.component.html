@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <img [src]="brand.logoPath"
+           alt="{{ brand.name }}"
+           class="img-fluid"
+      style="max-height: 150px">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>{{ brand.name }}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div ngbDropdown class="btn-group">
+        <button type="button" class="btn btn-primary" ngbDropdownToggle>Manage Brand</button>
+        <ul ngbDropdownMenu class="dropdown-menu">
+          <li style="cursor: pointer"><a class="dropdown-item" (click)="onEditBrand()">Edit Brand</a></li>
+          <li style="cursor: pointer"><a class="dropdown-item" (click)="onDelBrand()" >Delete Brand</a></li>
+        </ul>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p>{{ brand.description }}</p>
+    </div>
+  </div>
+    <hr>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let model of brand.models">{{ model.name }}</li>
+    </ul>
+  </div>
+</div>

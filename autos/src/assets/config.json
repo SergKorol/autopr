@@ -1,0 +1,8 @@
+{
+  "cars": [
+    {"brand": "Tesla",
+      "model": "Model X"},
+    {"brand": "BMW",
+      "model": "M5"}
+  ]
+}

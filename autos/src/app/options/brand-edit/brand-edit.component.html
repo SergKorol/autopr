@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="brandForm" (ngSubmit) = "onSubmit()">
+        <div class="row">
+          <div class="col-sm-12">
+            <button class="btn btn-submit"
+                    type="submit" [disabled]="!brandForm.valid">Save</button>
+            <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text"
+                     id="name"
+                     formControlName="name"
+                     class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="logo">Logo</label>
+              <input type="text"
+                     id="logo"
+                     formControlName="imagePath"
+                     class="form-control"
+                      #imagePath>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <img [src]="imagePath.value" alt="" class="img-fluid" style="max-height: 50px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="desc">Description</label>
+              <textarea type="text"
+                        id="desc"
+                        formControlName="description"
+                        class="form-control"
+                        rows="6"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12" formArrayName="models">
+            <div class="row"
+                 *ngFor="let modelCtrl of brandForm.get('models').value; let i=index"
+                 [formGroupName]="i"
+                 style="margin-top: 10px">
+              <div class="col-sm-4">
+                <input type="text" class="form-control" formControlName="name">
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-danger"
+                        type="button"
+                        (click)="onDelModel(i)">X</button>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-12">
+                <button type="button" class="btn success" (click)="onAddModel()">Add Model</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

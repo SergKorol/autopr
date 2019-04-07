@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="onAnalyse(f)" #f="ngForm">
+        <div class="row form-group">
+          <textarea class="form-control" rows="15" name="article" id="article" ngModel></textarea>
+        </div>
+        <div class="row" style="margin-top: 10px">
+          <button class="btn btn-success" type="submit">Analyse</button>
+          <button class="btn btn-danger" (click)="onClear()">Clear</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 brand-list">
+      <ul class="list-group" #l>
+        <li class="list-group-item"  *ngFor="let el of res">{{ el }}</li>
+      </ul>
+    </div>
+  </div>
+  <app-matched-brand-list></app-matched-brand-list>
+</div>

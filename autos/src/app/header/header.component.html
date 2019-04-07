@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">AutoMedia</a>
+
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" routerLinkActive>
+        <a routerLink="/options" class="nav-link" style="cursor: pointer">Options <span class="sr-only">(current)</span></a>
+      </li>
+      <!--<li class="nav-item" routerLinkActive>-->
+        <!--<a routerLink="/models" class="nav-link" style="cursor: pointer" >Models</a>-->
+      <!--</li>-->
+      <li class="nav-item">
+        <a routerLink="/new-article" class="nav-link" >New Article</a>
+      </li>
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" >Articles</a>-->
+      <!--</li>-->
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav auth">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li routerLink="/signup" class="nav-item"><a class="nav-link">Register</a></li>
+          <li routerLink="/signin" class="nav-item"><a class="nav-link">Enter</a></li>
+        </ng-template>
+        <!--<ng-template [ngIf]="!enterService.isAuth()">-->
+        <!--<li routerLink="/signup" class="nav-item"><a class="nav-link">Register</a></li>-->
+        <!--<li class="nav-item"><a (click)="openReg(signup)" class="nav-link">AuthModal</a></li>-->
+        <!--<li class="nav-item"><a (click)="openEnter(signin)" class="nav-link">Enter</a></li>-->
+        <!--</ng-template>-->
+      </ul>
+      <li class="nav-item" *ngIf="authService.isAuthenticated()"><a (click)="onLogout()" class="nav-link">Logout</a></li>
+      <li class="nav-item dropdown" *ngIf="authService.isAuthenticated()" ngbDropdown style="cursor: pointer">
+        <a ngbDropdownToggle="" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
+          Dropdown
+        </a>
+        <ul ngbDropdownMenu="" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="onSaveData()" >Save</a>
+          <a class="dropdown-item" (click)="onLoadData()" >Load</a>
+          <!--<a class="dropdown-item" (click)="onShowData()" >Show</a>-->
+        </ul>
+      </li>
+
+      <!--<li class="nav-item" *ngIf="enterService.isAuth()"><a (click)="onLogout()"></a></li>-->
+      <!--<li class="nav-item dropdown" *ngIf="enterService.isAuth()" ngbDropdown style="cursor: pointer">-->
+        <!--<a ngbDropdownToggle="" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">-->
+          <!--Dropdown-->
+        <!--</a>-->
+        <!--<ul ngbDropdownMenu="" class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+          <!--<a class="dropdown-item" (click)="onSaveData()" >Save</a>-->
+          <!--<a class="dropdown-item" (click)="onLoadData()" >Load</a>-->
+        <!--</ul>-->
+      <!--</li>-->
+    </ul>
+  </div>
+</nav>
+
+<!--<ng-template #signin let-c="close" let-d="dismiss">-->
+  <!--<div class="modal-header">-->
+    <!--<h4 class="modal-title">Enter</h4>-->
+    <!--<button type="button" class="close" aria-label="Close" (click)="d()">-->
+      <!--<span aria-hidden="true">&times;</span>-->
+    <!--</button>-->
+  <!--</div>-->
+  <!--<div class="modal-body">-->
+    <!--<form (ngSubmit) = "onSignin(f)" #f = "ngForm">-->
+      <!--<div class="form-group">-->
+        <!--<label for="email">Your e-mail</label>-->
+        <!--<input class="form-control" type="email" id="e-mail" name="email" ngModel>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="pass">Your password</label>-->
+        <!--<input class="form-control" type="password" id="password" name="password" ngModel>-->
+      <!--</div>-->
+      <!--<div class="modal-footer">-->
+        <!--<button type="submit" class="btn btn-outline-dark">Sign In</button>-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</div>-->
+<!--</ng-template>-->
+
+
+<!--<ng-template #signup let-c="close" let-d="dismiss">-->
+  <!--<div class="modal-header">-->
+    <!--<h4 class="modal-title" id="modal-basic-title">Register</h4>-->
+    <!--<button type="button" class="close" aria-label="Close" (click)="d()">-->
+      <!--<span aria-hidden="true">&times;</span>-->
+    <!--</button>-->
+  <!--</div>-->
+  <!--<div class="modal-body">-->
+    <!--<form (ngSubmit) = "onSignup(f)" #f = "ngForm">-->
+    <!--<div class="form-group">-->
+    <!--<label for="email">Your e-mail</label>-->
+    <!--<input class="form-control" type="email" id="email" name="email" ngModel>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+    <!--<label for="pass">Your password</label>-->
+    <!--<input class="form-control" type="password" id="pass" name="password" ngModel>-->
+    <!--</div>-->
+      <!--<div class="modal-footer">-->
+        <!--<button type="submit" class="btn btn-outline-dark">Sign Up</button>-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</div>-->
+<!--</ng-template>-->
